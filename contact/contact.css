@@ -306,10 +306,9 @@ padding-top: 1%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(clamp(5rem, 5vw, 11rem), 1fr));
     flex-wrap: wrap;
-    gap: 0.2rem;
-    padding: 2%;
+    gap: 0rem;
+    padding: 0.5%;
 }
-
 /* child (social media icons */
 .child {
     width: 30%;
