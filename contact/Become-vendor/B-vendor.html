@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VENDOR</title>
+    <link rel="stylesheet" href="B-vendor.css">
+</head>
+<body>
+
+    <!--navbar-->
+<div class="navbar">
+<!--navbar buttons  content-->  
+<div class="nav-cont">
+
+<a href="/index.html" class="navs">Home</a>
+
+<a href="../../Explore/explore.html" class="navs">Explore</a>
+
+<a href="../contact.html" class="navs" style="background: rgb(23, 83, 43); color: white;">Contact</a>
+
+<a href="#" class="navs">Cart</a>
+</div>
+</div>
+
+    <section class="vendor-section">
+    <div class="vendor-container">
+        <h2 class="head">Become an ELIXORA Vendor</h2>
+        <p>Join our growing network of perfume vendors and resellers.</p>
+
+        <form id="vendorForm">
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" id="name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Business Name</label>
+                <input type="text" id="business">
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" id="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="email">
+            </div>
+
+            <div class="form-group">
+                <label>Location (City/State) *</label>
+                <input type="text" id="location" required>
+            </div>
+
+            <div class="form-group">
+                <label>Business Type *</label>
+                <select id="businessType" required>
+                    <option value="">Select</option>
+                    <option>Physical Store</option>
+                    <option>Online Store</option>
+                    <option>Both</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Do you currently sell perfumes?</label>
+                <select id="experience">
+                    <option>No</option>
+                    <option>Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Expected Monthly Order Quantity</label>
+                <input type="text" id="quantity" placeholder="e.g. 20 bottles">
+            </div>
+
+            <div class="form-group">
+                <label>Additional Information</label>
+                <textarea id="message" rows="5"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Submit Application
+            </button>
+        </form>
+    </div>
+</section>
+
+
+<script src="B-vendor"></script>
+</body>
+</html>
