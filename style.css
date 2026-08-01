@@ -476,8 +476,8 @@ gap: 0.5rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(clamp(5rem, 5vw, 11rem), 1fr));
     flex-wrap: wrap;
-    gap: 0.1rem;
-    padding: 1%;
+    gap: 0.05rem;
+    padding: 0.5%;
 }
 /* child (social media icons */
 .child {
