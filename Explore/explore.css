@@ -114,7 +114,7 @@ border-radius: 0.5rem;
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(clamp(10rem, 10vw, 22rem), 1fr));
 flex-wrap: wrap;
-gap: 0.8rem;
+gap: 0.5rem;
 padding: 2%;
 }
 
