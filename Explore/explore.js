@@ -1,24 +1,3 @@
-
-
-function buyPerfume(name, size) {
-    let message = `Hello ELIXORA CEO, I want to buy ${name} perfume.
-
-    size: ${size}
-
-    Name: 
-    Phone: 
-    Address: 
-    Quantity: `;
-
-    let whatsappURL =
-
-    `https://wa.me/+2349136768457?text=${encodeURLIComponent(message)}`;
-
-    window.open(whatsappURL, "_blank"); 
-
-}
-
-
 const overlay = document.getElementById("orderOverlay");
 
 const modalName = document.getElementById("modalName");
@@ -32,44 +11,57 @@ const plusBtn = document.getElementById("plusBtn");
 const minusBtn = document.getElementById("minusBtn");
 
 const closeModal = document.getElementById("closeModal");
-
 const placeOrder = document.getElementById("placeOrder");
 
 let quantity = 1;
 let currentPrice = 0;
 
+
+// OPEN PRODUCT MODAL
 document.querySelectorAll(".buy-btn").forEach(btn => {
 
     btn.addEventListener("click", () => {
 
+        // Product name
         modalName.textContent = btn.dataset.name;
 
+        // Product price
         currentPrice = Number(btn.dataset.price);
 
         modalPrice.textContent =
-            currentPrice.toLocaleString();
+            "₦" + currentPrice.toLocaleString();
 
+        // Product image
         modalImage.src = btn.dataset.image;
 
+        // Reset quantity
         quantity = 1;
 
+        // Update total
         updateTotal();
 
+        // Show modal
         overlay.classList.add("active");
 
     });
 
 });
 
-function updateTotal(){
+
+// UPDATE QUANTITY AND TOTAL
+function updateTotal() {
 
     quantityDisplay.textContent = quantity;
 
+    const total = currentPrice * quantity;
+
     totalPrice.textContent =
-        (currentPrice * quantity).toLocaleString();
+        "₦" + total.toLocaleString();
 
 }
 
+
+// PLUS BUTTON
 plusBtn.addEventListener("click", () => {
 
     quantity++;
@@ -78,9 +70,11 @@ plusBtn.addEventListener("click", () => {
 
 });
 
+
+// MINUS BUTTON
 minusBtn.addEventListener("click", () => {
 
-    if(quantity > 1){
+    if (quantity > 1) {
 
         quantity--;
 
@@ -90,15 +84,19 @@ minusBtn.addEventListener("click", () => {
 
 });
 
+
+// CLOSE MODAL BUTTON
 closeModal.addEventListener("click", () => {
 
     overlay.classList.remove("active");
 
 });
 
+
+// CLOSE WHEN CLICKING OUTSIDE MODAL
 overlay.addEventListener("click", e => {
 
-    if(e.target === overlay){
+    if (e.target === overlay) {
 
         overlay.classList.remove("active");
 
@@ -106,18 +104,22 @@ overlay.addEventListener("click", e => {
 
 });
 
+
+// PLACE ORDER
 placeOrder.addEventListener("click", () => {
 
-    const name =
-        document.getElementById("customerName").value;
+    const customerName =
+        document.getElementById("customerName").value.trim();
 
-    const phone =
-        document.getElementById("customerPhone").value;
+    const customerPhone =
+        document.getElementById("customerPhone").value.trim();
 
-    const address =
-        document.getElementById("customerAddress").value;
+    const customerAddress =
+        document.getElementById("customerAddress").value.trim();
 
-    if(!name || !phone || !address){
+
+    // VALIDATION
+    if (!customerName || !customerPhone || !customerAddress) {
 
         alert("Please fill all fields.");
 
@@ -125,41 +127,37 @@ placeOrder.addEventListener("click", () => {
 
     }
 
+
+    // GET PRODUCT DETAILS
+    const productName = modalName.textContent;
+
     const total = currentPrice * quantity;
 
-    const message =
-`🛍 ELIXORA ORDER
 
-Product: ${modalName}
+    // WHATSAPP MESSAGE
+    const message = `🛍️ *ELIXORA ORDER*
 
-Quantity: ${quantity.textcontent}
+🌸 *Product:* ${productName}
 
-Total Price: ₦${total.toLocaleString()}
+📦 *Quantity:* ${quantity}
 
-Customer Name: ${name}
+💰 *Total Price:* ₦${total.toLocaleString()}
 
-Phone: ${phone}
+👤 *Customer Name:* ${customerName}
 
-Address: ${address}`;
+📞 *Phone:* ${customerPhone}
 
-    const whatsappNumber =
-        "2349136768457";
+📍 *Address:* ${customerAddress}`;
 
-    window.open(
-        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
-        "_blank"
-    );
+
+    // WHATSAPP NUMBER
+    const whatsappNumber = "2349136768457";
+
+
+    // OPEN WHATSAPP
+    const whatsappURL =
+        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, "_blank");
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
