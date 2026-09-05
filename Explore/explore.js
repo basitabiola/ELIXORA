@@ -130,11 +130,11 @@ placeOrder.addEventListener("click", () => {
     const message =
 `🛍 ELIXORA ORDER
 
-Product: ${modalName.textContent}
+Product: ${modalName}
 
-Quantity: ${quantity}
+Quantity: ${quantity.textcontent}
 
-Total: ₦${total.toLocaleString()}
+Total Price: ₦${total.toLocaleString()}
 
 Customer Name: ${name}
 
